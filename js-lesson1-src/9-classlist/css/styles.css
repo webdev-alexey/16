@@ -1,0 +1,16 @@
+html,
+body {
+  margin: 0;
+}
+
+.box .item {
+  margin: 10px 5px;
+  border: 1px solid transparent;
+  width: 200px;
+  padding: 3px;
+}
+
+.box .item.active {
+  border: 1px solid #ddd;
+  box-shadow: 5px 5px 10px #222;
+}
