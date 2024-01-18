@@ -13,38 +13,42 @@ window.addEventListener("load", function () {
   let resultBox = document.querySelector(".result");
   let select = document.querySelector(".select");
 
-  inp1.addEventListener("input", function () {
+  inp1.addEventListener("keyup", function () {
     this.value = this.value.replace(/[^\d]/g, "");
   });
-  inp2.addEventListener("input", function () {
+  inp2.addEventListener("keyup", function () {
     this.value = this.value.replace(/[^\d]/g, "");
   });
-
-  inp1.addEventListener("input", btnDisabled);
-  inp2.addEventListener("input", btnDisabled);
-  select.addEventListener("input", btnDisabled);
 
   btnRun.addEventListener("click", function () {
+    inp1.addEventListener("change", function () {
+      btnRun.disabled = false;
+    });
+    inp2.addEventListener("change", function () {
+      btnRun.disabled = false;
+    });
+    select.addEventListener("change", function () {
+      btnRun.disabled = false;
+    });
     if (select.value == "+") {
       let total = parseInt(inp1.value) + parseInt(inp2.value);
       resultBox.innerHTML = total;
+      btnRun.disabled = true;
     }
     if (select.value == "-") {
       let total = parseInt(inp1.value) - parseInt(inp2.value);
       resultBox.innerHTML = total;
+      btnRun.disabled = true;
     }
     if (select.value == "*") {
       let total = parseInt(inp1.value) * parseInt(inp2.value);
       resultBox.innerHTML = total;
+      btnRun.disabled = true;
     }
     if (select.value == "/") {
       let total = parseInt(inp1.value) / parseInt(inp2.value);
       resultBox.innerHTML = total;
+      btnRun.disabled = true;
     }
-    btnRun.disabled = true;
   });
-
-  function btnDisabled() {
-    btnRun.disabled = false;
-  }
 });
