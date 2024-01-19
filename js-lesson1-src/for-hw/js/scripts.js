@@ -11,40 +11,9 @@ window.addEventListener("load", function () {
   let inp2 = document.querySelector(".num2");
   let btnRun = document.querySelector(".btnRun");
   let resultBox = document.querySelector(".result");
-  let select = document.querySelector(".select");
-
-  inp1.addEventListener("input", function () {
-    this.value = this.value.replace(/[^\d]/g, "");
-  });
-  inp2.addEventListener("input", function () {
-    this.value = this.value.replace(/[^\d]/g, "");
-  });
-
-  inp1.addEventListener("input", btnDisabled);
-  inp2.addEventListener("input", btnDisabled);
-  select.addEventListener("input", btnDisabled);
 
   btnRun.addEventListener("click", function () {
-    if (select.value == "+") {
-      let total = parseInt(inp1.value) + parseInt(inp2.value);
-      resultBox.innerHTML = total;
-    }
-    if (select.value == "-") {
-      let total = parseInt(inp1.value) - parseInt(inp2.value);
-      resultBox.innerHTML = total;
-    }
-    if (select.value == "*") {
-      let total = parseInt(inp1.value) * parseInt(inp2.value);
-      resultBox.innerHTML = total;
-    }
-    if (select.value == "/") {
-      let total = parseInt(inp1.value) / parseInt(inp2.value);
-      resultBox.innerHTML = total;
-    }
-    btnRun.disabled = true;
+    let total = parseInt(inp1.value) + parseInt(inp2.value);
+    resultBox.innerHTML = total;
   });
-
-  function btnDisabled() {
-    btnRun.disabled = false;
-  }
 });

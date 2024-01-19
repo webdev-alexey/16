@@ -13,42 +13,40 @@ window.addEventListener("load", function () {
   let resultBox = document.querySelector(".result");
   let select = document.querySelector(".select");
 
-  inp1.addEventListener("keyup", function () {
-    this.value = this.value.replace(/[^\d]/g, "");
-  });
-  inp2.addEventListener("keyup", function () {
-    this.value = this.value.replace(/[^\d]/g, "");
-  });
-
   btnRun.addEventListener("click", function () {
-    inp1.addEventListener("change", function () {
-      btnRun.disabled = false;
-    });
-    inp2.addEventListener("change", function () {
-      btnRun.disabled = false;
-    });
-    select.addEventListener("change", function () {
-      btnRun.disabled = false;
-    });
+    let num1 = parseInt(inp1.value);
+    let num2 = parseInt(inp2.value);
+    let total;
+
     if (select.value == "+") {
-      let total = parseInt(inp1.value) + parseInt(inp2.value);
-      resultBox.innerHTML = total;
-      btnRun.disabled = true;
+      total = num1 + num2;
     }
     if (select.value == "-") {
-      let total = parseInt(inp1.value) - parseInt(inp2.value);
-      resultBox.innerHTML = total;
-      btnRun.disabled = true;
+      total = num1 - num2;
     }
     if (select.value == "*") {
-      let total = parseInt(inp1.value) * parseInt(inp2.value);
-      resultBox.innerHTML = total;
-      btnRun.disabled = true;
+      total = num1 * num2;
     }
     if (select.value == "/") {
-      let total = parseInt(inp1.value) / parseInt(inp2.value);
-      resultBox.innerHTML = total;
-      btnRun.disabled = true;
+      total = num1 / num2;
     }
+
+    resultBox.innerHTML = total;
+    btnRun.disabled = true;
   });
+
+  inp1.addEventListener("input", enableBtn);
+  inp2.addEventListener("input", enableBtn);
+  select.addEventListener("input", enableBtn);
+
+  inp1.addEventListener("input", cleanInput);
+  inp2.addEventListener("input", cleanInput);
+
+  function enableBtn() {
+    btnRun.disabled = false;
+  }
+
+  function cleanInput() {
+    this.value = this.value.replace(/[^\d]/g, "");
+  }
 });
