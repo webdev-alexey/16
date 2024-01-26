@@ -1,0 +1,25 @@
+html,
+body {
+  margin: 40px;
+}
+
+.form label {
+  display: inline-block;
+  width: 100px;
+}
+
+.form .item {
+  margin: 10px 0;
+}
+
+.err {
+  outline: 1px solid red;
+}
+
+.errBox {
+  display: none;
+}
+
+.err ~ .errBox {
+  display: inline;
+}

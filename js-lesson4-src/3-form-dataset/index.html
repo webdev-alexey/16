@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1</title>
+    <link href="css/styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <form class="form">
+      <div class="item">
+        <label>Имя</label>
+        <input type="text" name="name" class="check" data-rule="filled" />
+        <span class="errBox"></span>
+      </div>
+      <div class="item">
+        <label>Фамилия</label>
+        <input type="text" name="lastname" class="check" data-rule="filled" />
+        <span class="errBox"></span>
+      </div>
+      <div class="item">
+        <label>Телефон</label>
+        <input type="text" name="phone" class="check" data-rule="phone" />
+        <span class="errBox"></span>
+      </div>
+      <div class="item">
+        <label>Почта</label>
+        <input type="text" name="email" class="check" data-rule="email" />
+        <span class="errBox"></span>
+      </div>
+      <div class="item">
+        <label>Почта запасная</label>
+        <input
+          type="text"
+          name="email-reserve"
+          class="check"
+          data-rule="email" />
+        <span class="errBox"></span>
+      </div>
+      <input type="submit" value="Отправить" />
+    </form>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
